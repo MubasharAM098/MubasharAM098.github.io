@@ -754,7 +754,8 @@ button:focus-visible {
     body {
         background: white;
         color: #171918;
-        font-size: 11px;
+        font-size: 9px;
+        line-height: 1.35;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
@@ -768,11 +769,12 @@ button:focus-visible {
     .header {
         background: #f5f7f1 !important;
         border-radius: 0;
-        padding: 24px 30px;
+        padding: 10px 18px 8px;
         margin-bottom: 0;
         border: none;
         border-bottom: 2px solid #d1495b;
-        page-break-inside: avoid;
+        break-inside: avoid;
+        break-after: avoid;
         box-shadow: none;
     }
 
@@ -782,7 +784,7 @@ button:focus-visible {
     }
 
     .name {
-        font-size: 1.9rem;
+        font-size: 1.45rem;
         color: #171918;
         -webkit-text-fill-color: #171918;
     }
@@ -798,8 +800,33 @@ button:focus-visible {
         color: #414741;
     }
 
+    .title {
+        font-size: 0.82rem;
+        margin-top: 2px;
+    }
+
+    .tagline {
+        font-size: 0.68rem;
+        margin-top: 2px;
+    }
+
+    .contact-block {
+        min-width: 190px;
+        gap: 2px;
+    }
+
+    .contact-item {
+        font-size: 0.62rem;
+        gap: 6px;
+    }
+
+    .contact-item svg {
+        width: 11px;
+        height: 11px;
+    }
+
     .body-grid {
-        grid-template-columns: 340px 1fr;
+        grid-template-columns: 250px 1fr;
         gap: 0;
     }
 
@@ -807,9 +834,10 @@ button:focus-visible {
         border-radius: 0;
         border: none;
         border-bottom: 1px solid #e8e8f0;
-        padding: 16px 24px;
+        padding: 8px 12px;
         margin-bottom: 0;
-        page-break-inside: avoid;
+        break-inside: auto;
+        page-break-inside: auto;
         box-shadow: none;
     }
 
@@ -821,9 +849,82 @@ button:focus-visible {
         border-right: 1px solid #e0e0ea;
     }
 
+    .section-title {
+        font-size: 0.68rem;
+        margin-bottom: 6px;
+        padding-bottom: 5px;
+        gap: 6px;
+    }
+
+    .section-title svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .summary {
+        font-size: 0.64rem;
+        line-height: 1.38;
+    }
+
+    .experience-item {
+        gap: 4px;
+    }
+
+    .experience-role,
+    .edu-degree {
+        font-size: 0.7rem;
+        line-height: 1.2;
+    }
+
+    .experience-type,
+    .edu-year {
+        font-size: 0.48rem;
+        padding: 1px 5px;
+    }
+
+    .experience-meta,
+    .edu-school {
+        font-size: 0.62rem;
+    }
+
+    .experience-list {
+        gap: 3px;
+    }
+
+    .experience-list li,
+    .edu-detail {
+        font-size: 0.58rem;
+        line-height: 1.32;
+        padding-left: 12px;
+    }
+
+    .experience-list li::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    .skills-grid {
+        gap: 6px;
+    }
+
+    .skill-category {
+        gap: 3px;
+    }
+
+    .skill-label {
+        font-size: 0.56rem;
+    }
+
+    .skill-tags {
+        gap: 3px;
+    }
+
     .tag {
         border: 1px solid #d9e0d5;
         background: #f5f7f1;
+        font-size: 0.52rem;
+        padding: 1px 5px;
+        border-radius: 3px;
     }
 
     .tag-primary {
@@ -846,16 +947,79 @@ button:focus-visible {
 
     .project-badge {
         border: 1px solid currentColor;
+        font-size: 0.5rem;
+        padding: 1px 5px;
+        border-radius: 3px;
     }
 
     .project-tech span {
         border: 1px solid #d8d8e8;
         background: #f8f8fc;
         color: #5a5a70;
+        font-size: 0.5rem;
+        padding: 1px 5px;
+        border-radius: 3px;
     }
 
     .project {
+        padding: 6px 0;
+        break-inside: avoid;
         page-break-inside: avoid;
+    }
+
+    .project-featured,
+    .project-featured:hover,
+    .project:hover {
+        padding-left: 8px;
+    }
+
+    .project-header {
+        margin-bottom: 4px;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .project-title {
+        font-size: 0.72rem;
+        line-height: 1.2;
+        gap: 5px;
+    }
+
+    .project-icon {
+        min-width: 0.9rem;
+        font-size: 0.7rem;
+    }
+
+    .project-desc,
+    .project-list li {
+        font-size: 0.6rem;
+        line-height: 1.32;
+    }
+
+    .project-list {
+        margin-top: 4px;
+    }
+
+    .project-list li {
+        padding-left: 12px;
+    }
+
+    .project-list li::before {
+        width: 6px;
+    }
+
+    .project-tech {
+        margin-top: 5px;
+        gap: 3px;
+    }
+
+    #project-edr,
+    #project-calfume {
+        display: none;
+    }
+
+    .edu-detail {
+        display: none;
     }
 
     /* Animations off */
@@ -865,7 +1029,7 @@ button:focus-visible {
     }
 
     @page {
-        margin: 0.5cm;
+        margin: 0.35cm;
         size: A4;
     }
 
