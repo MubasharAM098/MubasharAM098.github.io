@@ -102,6 +102,7 @@ button:focus-visible {
     font-family: var(--font-main);
     font-size: 0.85rem;
     font-weight: 600;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 5px 5px 0 rgba(209, 73, 91, 0.22);
@@ -498,6 +499,10 @@ button:focus-visible {
 
 .project-icon {
     font-size: 1rem;
+    min-width: 1.1rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
 }
 
 .project-badge {
@@ -778,6 +783,8 @@ button:focus-visible {
 
     .name {
         font-size: 1.9rem;
+        color: #171918;
+        -webkit-text-fill-color: #171918;
     }
 
     .name-accent {
