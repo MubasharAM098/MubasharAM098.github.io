@@ -1,6 +1,6 @@
 /* ============================================
    CV STYLESHEET — Mubashar Ashraf
-   Full-Stack AI Engineer | Unity & Interactive Systems Developer
+   Full-Stack AI Engineer | AI Automation Developer
    ============================================ */
 
 /* --- CSS Variables & Design Tokens --- */
@@ -16,7 +16,6 @@
     --accent-primary: #d1495b;
     --accent-secondary: #0f8b8d;
     --accent-tertiary: #f4d35e;
-    --accent-game: #5b5f97;
     --accent-ai: #d1495b;
     --accent-fintech: #2a9d8f;
     --accent-mobile: #3a86ff;
@@ -327,12 +326,6 @@ button:focus-visible {
     border-color: rgba(209, 73, 91, 0.24);
 }
 
-.tag-game {
-    background: #f0f1ff;
-    color: #464b86;
-    border-color: rgba(91, 95, 151, 0.24);
-}
-
 .tag-delivery {
     background: #eaf8f6;
     color: #116c6e;
@@ -516,12 +509,6 @@ button:focus-visible {
     flex-shrink: 0;
 }
 
-.badge-game {
-    background: #f0f1ff;
-    color: #464b86;
-    border: 1px solid rgba(91, 95, 151, 0.24);
-}
-
 .badge-ai {
     background: #fff0f2;
     color: #9e2638;
@@ -584,7 +571,7 @@ button:focus-visible {
     top: 0.73em;
     width: 8px;
     height: 2px;
-    background: var(--accent-game);
+    background: var(--accent-secondary);
 }
 
 .project-list li strong {
@@ -931,12 +918,6 @@ button:focus-visible {
         background: #fff0f2;
         color: #9e2638;
         border-color: #efc3ca;
-    }
-
-    .tag-game {
-        background: #f0f1ff;
-        color: #464b86;
-        border-color: #c9caeb;
     }
 
     .tag-delivery {

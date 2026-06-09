@@ -1,4 +1,4 @@
-// CV Interactive Enhancements
+// CV UI Enhancements
 document.addEventListener('DOMContentLoaded', () => {
     const prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
 
