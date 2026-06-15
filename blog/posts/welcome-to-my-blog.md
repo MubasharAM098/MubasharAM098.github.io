@@ -42,9 +42,9 @@ Pretty clean, right? Future posts will go much deeper — exploring architecture
 One of the best parts of writing is the conversation it sparks. Every post on this blog has a **comment section powered by GitHub Discussions** (via Giscus). If you have a GitHub account, you can leave comments, ask questions, or share your own experiences.
 
 You can also find me on:
-- **GitHub**: [@MubasharAM098](https://github.com/MubasharAM098)
+- **GitHub**: [@Mubashar986](https://github.com/Mubashar986)
 - **LinkedIn**: [Mubashar Ashraf](https://linkedin.com/in/mubashar-ashraf)
-- **Email**: [mubasharamofficial@gmail.com](mailto:mubasharamofficial@gmail.com)
+- **Email**: [mubashirmaitlo@gmail.com](mailto:mubashirmaitlo@gmail.com)
 
 ## What's Next?
 
