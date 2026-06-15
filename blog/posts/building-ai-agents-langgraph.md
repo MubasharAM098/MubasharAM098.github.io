@@ -21,19 +21,19 @@ Here's the high-level architecture of NewsAgent AI:
 
 ```mermaid
 graph TD
-    A[Scheduler - Cron Trigger] --> B[News Fetcher Agent]
-    B --> C{Source Router}
-    C --> D[RSS Parser]
-    C --> E[News API Client]
-    C --> F[Web Scraper]
-    D --> G[Article Aggregator]
+    A["Scheduler - Cron Trigger"] --> B["News Fetcher Agent"]
+    B --> C{"Source Router"}
+    C --> D["RSS Parser"]
+    C --> E["News API Client"]
+    C --> F["Web Scraper"]
+    D --> G["Article Aggregator"]
     E --> G
     F --> G
-    G --> H[Relevance Filter Agent]
-    H --> I[Summarizer Agent - GPT-4o]
-    I --> J[Digest Formatter]
-    J --> K[WhatsApp Delivery via Twilio]
-    K --> L[Delivery Confirmation Log]
+    G --> H["Relevance Filter Agent"]
+    H --> I["Summarizer Agent - GPT-4o"]
+    I --> J["Digest Formatter"]
+    J --> K["WhatsApp Delivery via Twilio"]
+    K --> L["Delivery Confirmation Log"]
 
     style A fill:#f4d35e,stroke:#333,color:#000
     style I fill:#d1495b,stroke:#333,color:#fff

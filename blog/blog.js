@@ -12,16 +12,7 @@
         postsPerPage: 6,
         postsJsonPath: 'posts.json',
         postsDir: 'posts/',
-        scrollTopThreshold: 300,
-        giscus: {
-            repo: 'MubasharAM098/MubasharAM098.github.io',
-            repoId: '',
-            category: 'Blog Comments',
-            categoryId: '',
-            mapping: 'pathname',
-            theme: 'light',
-            lang: 'en'
-        }
+        scrollTopThreshold: 300
     };
 
     // --- State ---
@@ -55,7 +46,6 @@
         articleDesc: $('#article-desc'),
         articleBody: $('#article-body'),
         articleAdSlot: $('#article-ad-slot'),
-        commentsSection: $('#comments-section'),
         blogHero: $('#blog-hero'),
         sidebarTags: $('#sidebar-tags')
     };
@@ -333,8 +323,7 @@
             }
         }
 
-        // Load Giscus comments
-        loadGiscusComments(slug);
+
 
         // Push article ad
         try {
@@ -364,36 +353,7 @@
         state.currentView = 'post';
     }
 
-    // --- Giscus Comments ---
-    function loadGiscusComments(slug) {
-        const container = DOM.commentsSection;
-        if (!container) return;
 
-        // Clear existing
-        const existingScript = container.querySelector('.giscus');
-        if (existingScript) existingScript.remove();
-        const existingFrame = container.querySelector('script[src*="giscus"]');
-        if (existingFrame) existingFrame.remove();
-
-        container.style.display = 'block';
-
-        const script = document.createElement('script');
-        script.src = 'https://giscus.app/client.js';
-        script.setAttribute('data-repo', CONFIG.giscus.repo);
-        script.setAttribute('data-repo-id', CONFIG.giscus.repoId);
-        script.setAttribute('data-category', CONFIG.giscus.category);
-        script.setAttribute('data-category-id', CONFIG.giscus.categoryId);
-        script.setAttribute('data-mapping', CONFIG.giscus.mapping);
-        script.setAttribute('data-strict', '0');
-        script.setAttribute('data-reactions-enabled', '1');
-        script.setAttribute('data-emit-metadata', '0');
-        script.setAttribute('data-input-position', 'top');
-        script.setAttribute('data-theme', CONFIG.giscus.theme);
-        script.setAttribute('data-lang', CONFIG.giscus.lang);
-        script.setAttribute('crossorigin', 'anonymous');
-        script.async = true;
-        container.appendChild(script);
-    }
 
     // --- View Management ---
     function showHome() {
@@ -409,8 +369,6 @@
         DOM.readingProgress.style.width = '0%';
         DOM.homeView.classList.add('view-fade-enter');
 
-        // Hide comments
-        if (DOM.commentsSection) DOM.commentsSection.style.display = 'none';
 
         // Reset title
         document.title = 'Blog — Mubashar Ashraf | mubi.me';
