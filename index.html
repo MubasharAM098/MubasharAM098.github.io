@@ -35,8 +35,22 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4851542991688278"
+         crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Site Navigation -->
+    <nav class="site-nav no-print" id="site-navigation">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">mubi<span class="nav-logo-accent">.me</span></a>
+            <div class="nav-links">
+                <a href="/" class="nav-link nav-link-active">CV</a>
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
     <!-- Print Button -->
     <a class="print-btn no-print" href="output/pdf/Mubashar-Ashraf-Full-Stack-AI-Engineer-CV.pdf?v=20260610-ai" download="Mubashar-Ashraf-Full-Stack-AI-Engineer-CV.pdf" id="print-button" title="Download CV PDF">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -369,13 +383,60 @@
             </div>
         </div>
 
+        <!-- Latest Blog Posts -->
+        <section class="latest-posts-section no-print" id="latest-posts-section">
+            <h2 class="section-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                Latest Blog Posts
+            </h2>
+            <div class="latest-posts-grid" id="latest-posts-grid">
+                <p class="latest-posts-loading" id="latest-posts-loading">Loading latest posts...</p>
+            </div>
+            <a href="/blog/" class="latest-posts-cta" id="view-all-posts">View All Posts &rarr;</a>
+        </section>
+
         <!-- Footer -->
         <footer class="footer no-print" id="cv-footer">
-            <p>References available upon request &middot; Portfolio and code samples on <a href="https://github.com/Mubashar986" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+            <p>References available upon request &middot; Portfolio and code samples on <a href="https://github.com/Mubashar986" target="_blank" rel="noopener noreferrer">GitHub</a> &middot; <a href="/privacy-policy.html">Privacy Policy</a></p>
         </footer>
 
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Load Latest Blog Posts -->
+    <script>
+    (function() {
+        fetch('/blog/posts.json')
+            .then(function(r) { return r.json(); })
+            .then(function(posts) {
+                var grid = document.getElementById('latest-posts-grid');
+                var loading = document.getElementById('latest-posts-loading');
+                if (loading) loading.remove();
+                var latest = posts.sort(function(a, b) { return new Date(b.date) - new Date(a.date); }).slice(0, 3);
+                if (latest.length === 0) {
+                    grid.innerHTML = '<p class="latest-posts-empty">No posts yet. Check back soon!</p>';
+                    return;
+                }
+                grid.innerHTML = latest.map(function(post) {
+                    var dateStr = new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                    var tagsHtml = post.tags.slice(0, 3).map(function(t) { return '<span class="latest-post-tag">' + t + '</span>'; }).join('');
+                    return '<a href="/blog/#' + post.slug + '" class="latest-post-card">' +
+                        '<span class="latest-post-date">' + dateStr + '</span>' +
+                        '<h3 class="latest-post-title">' + post.title + '</h3>' +
+                        '<p class="latest-post-desc">' + post.description + '</p>' +
+                        '<div class="latest-post-meta">' +
+                            '<span class="latest-post-readtime">&#128214; ' + post.readTime + '</span>' +
+                            tagsHtml +
+                        '</div>' +
+                    '</a>';
+                }).join('');
+            })
+            .catch(function() {
+                var loading = document.getElementById('latest-posts-loading');
+                if (loading) loading.textContent = 'Blog coming soon!';
+            });
+    })();
+    </script>
 </body>
 </html>

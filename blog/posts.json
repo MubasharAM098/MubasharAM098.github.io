@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "welcome-to-my-blog",
+    "title": "Welcome to My Blog — What to Expect",
+    "description": "An introduction to my new blog where I share insights on AI engineering, automation workflows, and lessons learned from real-world projects.",
+    "date": "2026-06-16",
+    "tags": ["General", "AI Engineering"],
+    "readTime": "3 min"
+  },
+  {
+    "slug": "building-ai-agents-langgraph",
+    "title": "How I Built an Autonomous News Agent with LangGraph",
+    "description": "A deep-dive into building NewsAgent AI — an autonomous system that fetches, filters, summarizes, and delivers curated news digests via WhatsApp.",
+    "date": "2026-06-16",
+    "tags": ["AI Agents", "LangGraph", "Python"],
+    "readTime": "8 min"
+  }
+]
