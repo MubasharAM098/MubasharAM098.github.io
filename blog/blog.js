@@ -302,35 +302,9 @@
             return;
         }
 
-        // Check for mermaid blocks and temporarily replace them
-        const mermaidBlocks = [];
-        const processedMd = markdown.replace(/```mermaid\r?\n([\s\S]*?)```/g, (match, code) => {
-            const id = `mermaid-${mermaidBlocks.length}`;
-            mermaidBlocks.push({ id, code: code.trim() });
-            return `<div class="mermaid" id="${id}">${code.trim()}</div>`;
-        });
-
-        const html = marked.parse(processedMd);
+        const html = marked.parse(markdown);
         DOM.articleBody.innerHTML = html;
         DOM.articleBody.classList.add('view-fade-enter');
-
-        // Initialize mermaid diagrams
-        if (mermaidBlocks.length > 0 && window.mermaid) {
-            try {
-                await mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
-            } catch (e) {
-                console.warn('Mermaid rendering error:', e);
-                // Fallback: show the raw diagram code in a code block
-                document.querySelectorAll('.mermaid').forEach(el => {
-                    if (el.querySelector('svg')) return; // already rendered
-                    const pre = document.createElement('pre');
-                    pre.textContent = el.textContent;
-                    pre.style.cssText = 'background:#1e1e1e;color:#abb2bf;padding:16px;border-radius:8px;overflow-x:auto;font-size:0.85rem;';
-                    el.replaceWith(pre);
-                });
-            }
-        }
-
 
 
         // Push article ad
